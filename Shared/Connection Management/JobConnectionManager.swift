@@ -16,9 +16,12 @@ class JobConnectionManager: NSObject, ObservableObject{
     private let session: MCSession;
     private let myPeerID = MCPeerID(displayName: UIDevice.current.name);
     private let jobReceivedHandler : JobReceivedHandler?
-    private static let service = "network_test2";
+    private static let service = "network-test2";
     private var nearbyServiceAdvertiser: MCNearbyServiceAdvertiser;
     private var nearbyServiceBrowser: MCNearbyServiceBrowser;
+    private var jobToSend: JobModel?
+
+
     init(_ jobReceivedHandler:JobReceivedHandler? = nil){
         
         session = MCSession(
@@ -65,6 +68,21 @@ class JobConnectionManager: NSObject, ObservableObject{
         }
     }
     
+    func invitePeer(_ peerID: MCPeerID, to job: JobModel){
+        jobToSend = job;
+        let context = job.name.data(using: .utf8);
+        nearbyServiceBrowser.invitePeer(peerID, to: session, withContext: context, timeout: TimeInterval(120))
+    }
+    
+    func send(_ job:JobModel, to peer:MCPeerID){
+        do{
+            let data = try JSONEncoder().encode(job)
+            try session.send(data, toPeers: [peer], with: .reliable)
+        } catch{
+            print(error.localizedDescription)
+        }
+    }
+    
 }
 
 extension JobConnectionManager: MCNearbyServiceAdvertiserDelegate {
@@ -94,15 +112,13 @@ extension JobConnectionManager: MCNearbyServiceAdvertiserDelegate {
       })
       alertController.addAction(UIAlertAction(title:"Yes",
                                               style:.default){_ in
-          invitationHandler(true,nil)
+          invitationHandler(true,self.session)
           
       })
+      window.rootViewController?.present(alertController, animated: true)
   }
 }
 
-extension JobConnectionManager: MCSessionDelegate{
-    
-}
 
 extension JobConnectionManager: MCNearbyServiceBrowserDelegate{
     func browser(_ browser: MCNearbyServiceBrowser,
@@ -125,4 +141,35 @@ extension JobConnectionManager: MCNearbyServiceBrowserDelegate{
         
     }
 }
+
+extension JobConnectionManager: MCSessionDelegate{
+    func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState){
+        switch state{
+        case .connected:
+            guard let jobToSend = jobToSend else {return}
+            send(jobToSend, to: peerID)
+        case .notConnected:
+            print("Not Connected: \(peerID.displayName)")
+        case .connecting:
+            print("Connecting to: \(peerID.displayName)")
+        @unknown default:
+            print("Unknown state: \(state)")
+        }
+    }
+    
+    func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID){
+        guard let job = try? JSONDecoder().decode(JobModel.self, from: data) else {return}
+        DispatchQueue.main.async{
+            self.jobReceivedHandler?(job)
+        }
+    }
+    
+    func session(_ session: MCSession, didReceive stream: InputStream, withName streamName: String, fromPeer peerID: MCPeerID) {}
+
+    func session(_ session: MCSession, didStartReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, with progress: Progress) {}
+
+    func session(_ session: MCSession, didFinishReceivingResourceWithName resourceName: String, fromPeer peerID: MCPeerID, at localURL: URL?, withError error: Error?) {}
+    
+}
+
 

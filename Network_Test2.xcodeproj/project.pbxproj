@@ -11,6 +11,12 @@
 		984A57DC28A87606006907AB /* JobListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984A57DA28A87605006907AB /* JobListView.swift */; };
 		984A57E228A8A27B006907AB /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984A57E128A8A27B006907AB /* ButtonStyle.swift */; };
 		984A57E328A8A27B006907AB /* ButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984A57E128A8A27B006907AB /* ButtonStyle.swift */; };
+		984A57E528A8B6E8006907AB /* JobListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984A57E428A8B6E8006907AB /* JobListRowView.swift */; };
+		984A57E628A8B6E8006907AB /* JobListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984A57E428A8B6E8006907AB /* JobListRowView.swift */; };
+		984A57E828A8BA0C006907AB /* JobView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984A57E728A8BA0C006907AB /* JobView.swift */; };
+		984A57E928A8BA0C006907AB /* JobView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984A57E728A8BA0C006907AB /* JobView.swift */; };
+		984A57EB28A8E8CB006907AB /* AddJobView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984A57EA28A8E8CB006907AB /* AddJobView.swift */; };
+		984A57EC28A8E8CB006907AB /* AddJobView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 984A57EA28A8E8CB006907AB /* AddJobView.swift */; };
 		985CE108287B0FED00A2F3E0 /* Network_Test2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985CE0F8287B0FEB00A2F3E0 /* Network_Test2App.swift */; };
 		985CE109287B0FED00A2F3E0 /* Network_Test2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985CE0F8287B0FEB00A2F3E0 /* Network_Test2App.swift */; };
 		985CE10A287B0FED00A2F3E0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 985CE0F9287B0FEB00A2F3E0 /* ContentView.swift */; };
@@ -26,6 +32,11 @@
 /* Begin PBXFileReference section */
 		984A57DA28A87605006907AB /* JobListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobListView.swift; sourceTree = "<group>"; };
 		984A57E128A8A27B006907AB /* ButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyle.swift; sourceTree = "<group>"; };
+		984A57E428A8B6E8006907AB /* JobListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobListRowView.swift; sourceTree = "<group>"; };
+		984A57E728A8BA0C006907AB /* JobView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobView.swift; sourceTree = "<group>"; };
+		984A57EA28A8E8CB006907AB /* AddJobView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJobView.swift; sourceTree = "<group>"; };
+		984A57F028A916AE006907AB /* Network-Test2--macOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Network-Test2--macOS--Info.plist"; sourceTree = "<group>"; };
+		984A57F128A91747006907AB /* Network_Test2 (iOS).entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Network_Test2 (iOS).entitlements"; sourceTree = "<group>"; };
 		985CE0F8287B0FEB00A2F3E0 /* Network_Test2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network_Test2App.swift; sourceTree = "<group>"; };
 		985CE0F9287B0FEB00A2F3E0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		985CE0FA287B0FED00A2F3E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -66,6 +77,9 @@
 			isa = PBXGroup;
 			children = (
 				984A57DA28A87605006907AB /* JobListView.swift */,
+				984A57E428A8B6E8006907AB /* JobListRowView.swift */,
+				984A57E728A8BA0C006907AB /* JobView.swift */,
+				984A57EA28A8E8CB006907AB /* AddJobView.swift */,
 			);
 			path = "Job View";
 			sourceTree = "<group>";
@@ -89,6 +103,8 @@
 		985CE0F2287B0FEB00A2F3E0 = {
 			isa = PBXGroup;
 			children = (
+				984A57F128A91747006907AB /* Network_Test2 (iOS).entitlements */,
+				984A57F028A916AE006907AB /* Network-Test2--macOS--Info.plist */,
 				985CE0F7287B0FEB00A2F3E0 /* Shared */,
 				985CE106287B0FED00A2F3E0 /* macOS */,
 				985CE100287B0FED00A2F3E0 /* Products */,
@@ -228,7 +244,10 @@
 				98830E98288CCD050087657E /* JobModel.swift in Sources */,
 				985CE10A287B0FED00A2F3E0 /* ContentView.swift in Sources */,
 				984A57E228A8A27B006907AB /* ButtonStyle.swift in Sources */,
+				984A57E528A8B6E8006907AB /* JobListRowView.swift in Sources */,
 				984A57DB28A87606006907AB /* JobListView.swift in Sources */,
+				984A57EB28A8E8CB006907AB /* AddJobView.swift in Sources */,
+				984A57E828A8BA0C006907AB /* JobView.swift in Sources */,
 				985CE108287B0FED00A2F3E0 /* Network_Test2App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -241,7 +260,10 @@
 				98830E99288CCD050087657E /* JobModel.swift in Sources */,
 				985CE10B287B0FED00A2F3E0 /* ContentView.swift in Sources */,
 				984A57E328A8A27B006907AB /* ButtonStyle.swift in Sources */,
+				984A57E628A8B6E8006907AB /* JobListRowView.swift in Sources */,
 				984A57DC28A87606006907AB /* JobListView.swift in Sources */,
+				984A57EC28A8E8CB006907AB /* AddJobView.swift in Sources */,
+				984A57E928A8BA0C006907AB /* JobView.swift in Sources */,
 				985CE109287B0FED00A2F3E0 /* Network_Test2App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -363,6 +385,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Network_Test2 (iOS).entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 84UYDPD9PM;
@@ -393,6 +416,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Network_Test2 (iOS).entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 84UYDPD9PM;
@@ -432,6 +456,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Network-Test2--macOS--Info.plist";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -460,6 +485,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Network-Test2--macOS--Info.plist";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

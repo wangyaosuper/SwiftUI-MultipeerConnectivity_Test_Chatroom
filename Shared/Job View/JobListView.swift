@@ -8,14 +8,15 @@
 import Foundation
 import SwiftUI
 
-class JobListView : View{
+struct JobListView : View{
     @ObservedObject var jobListStore: JobListStore;
-    @ObservedObject var jobConnectManager: JobConnectionManager;
+    @ObservedObject var jobConnectionManager: JobConnectionManager;
     @State private var showAddJob = false;
     
     init(jobListStore: JobListStore = JobListStore()){
+        print("CheckPoint 0")
         self.jobListStore = jobListStore;
-        jobConnectManager = JobConnectionManager(){
+        self.jobConnectionManager = JobConnectionManager(){
             job in jobListStore.jobs.append(job);   ///  这行真的是没有看懂
         }
     }
@@ -23,23 +24,29 @@ class JobListView : View{
     var body: some View{
         List{
             Section(header: headerView,
-                    footer:footView){
+                    footer:footerView){
                 ForEach(jobListStore.jobs){
                     job in JobListRowView(job:job)
-                        .environmentObject(jobConnectManager);
-                }.onDelete(indexSet in jobListStore.jobs.remove(atOffsets: indexSet))
+                        .environmentObject(self.jobConnectionManager);
+                }.onDelete{indexSet in self.jobListStore.jobs.remove(atOffsets: indexSet)}
             }
-        }
+        }.listStyle(InsetGroupedListStyle())
+            .navigationTitle("Job")
+            .sheet(isPresented:$showAddJob){
+                NavigationView{
+                    AddJobView().environmentObject(jobListStore)
+                }
+            }
     }
     
     var headerView: some View{
-        Toggle("Receive Job", isOn: $jobConnectManager.isReceivingJobs)
+        Toggle("Receive Job", isOn: $jobConnectionManager.isReceivingJobs)
     }
     
     var footerView: some View{
         Button(action:{showAddJob = true}, label:{
             Label("Add Job", systemImage: "plus.circle")
-        }).buttonStyle(style:FooterButtonStyle())
+        }).buttonStyle(FooterButtonStyle())
     }
     
 
