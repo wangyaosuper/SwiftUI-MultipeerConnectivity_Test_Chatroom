@@ -2,9 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSServices</key>
+	<key>NSBonjourServices</key>
 	<array>
-		<dict/>
+		<string>_network-test2._tcp</string>
+		<string>_network-test2._udp</string>
 	</array>
 </dict>
 </plist>

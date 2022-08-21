@@ -35,8 +35,6 @@
 		984A57E428A8B6E8006907AB /* JobListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobListRowView.swift; sourceTree = "<group>"; };
 		984A57E728A8BA0C006907AB /* JobView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobView.swift; sourceTree = "<group>"; };
 		984A57EA28A8E8CB006907AB /* AddJobView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJobView.swift; sourceTree = "<group>"; };
-		984A57F028A916AE006907AB /* Network-Test2--macOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Network-Test2--macOS--Info.plist"; sourceTree = "<group>"; };
-		984A57F128A91747006907AB /* Network_Test2 (iOS).entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Network_Test2 (iOS).entitlements"; sourceTree = "<group>"; };
 		985CE0F8287B0FEB00A2F3E0 /* Network_Test2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network_Test2App.swift; sourceTree = "<group>"; };
 		985CE0F9287B0FEB00A2F3E0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		985CE0FA287B0FED00A2F3E0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -45,6 +43,8 @@
 		985CE107287B0FED00A2F3E0 /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
 		98830E94288CBF6F0087657E /* JobConnectionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobConnectionManager.swift; sourceTree = "<group>"; };
 		98830E97288CCD050087657E /* JobModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobModel.swift; sourceTree = "<group>"; };
+		989B9F2E28B20B18004F08E6 /* Network_Test2 (iOS).entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = "Network_Test2 (iOS).entitlements"; sourceTree = "<group>"; };
+		989B9F3328B21AFA004F08E6 /* Network-Test2--iOS--Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Network-Test2--iOS--Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,8 +103,8 @@
 		985CE0F2287B0FEB00A2F3E0 = {
 			isa = PBXGroup;
 			children = (
-				984A57F128A91747006907AB /* Network_Test2 (iOS).entitlements */,
-				984A57F028A916AE006907AB /* Network-Test2--macOS--Info.plist */,
+				989B9F3328B21AFA004F08E6 /* Network-Test2--iOS--Info.plist */,
+				989B9F2E28B20B18004F08E6 /* Network_Test2 (iOS).entitlements */,
 				985CE0F7287B0FEB00A2F3E0 /* Shared */,
 				985CE106287B0FED00A2F3E0 /* macOS */,
 				985CE100287B0FED00A2F3E0 /* Products */,
@@ -391,6 +391,8 @@
 				DEVELOPMENT_TEAM = 84UYDPD9PM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Network-Test2--iOS--Info.plist";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Job Manager needs to use your phone's data to discover devices nearby";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -422,6 +424,8 @@
 				DEVELOPMENT_TEAM = 84UYDPD9PM;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Network-Test2--iOS--Info.plist";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Job Manager needs to use your phone's data to discover devices nearby";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
