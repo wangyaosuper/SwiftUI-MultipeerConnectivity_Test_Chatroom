@@ -41,7 +41,7 @@ struct JobListView : View{
     
     var headerView: some View{
         Toggle("Receive Job", isOn: $jobConnectionManager.isReceivingJobs)
-    }
+    }   
     
     var footerView: some View{
         Button(action:{showAddJob = true}, label:{

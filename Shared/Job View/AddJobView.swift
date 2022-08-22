@@ -9,19 +9,30 @@ import SwiftUI
 
 struct AddJobView: View{
     @EnvironmentObject var jobListStore: JobListStore
+    @Environment(\.presentationMode) var presentationMode;
+    @Environment(\.dismiss) var dismiss;
     @State private var jobName = ""
     @State private var dueDate = Date()
+    
     var body : some View{
         Form{
             TextField("Job Name", text: $jobName);
             DatePicker("Due Date", selection: $dueDate, in:Date()...,
                        displayedComponents: .date)
         
-            Button("Save"){
-                let job = JobModel(name: jobName, dueDate: dueDate,
-                                   payout: "")
-                jobListStore.jobs.append(job)
-            }.disabled(jobName.isEmpty)
+            HStack(alignment: .top){
+                Button("Save"){
+                    let job = JobModel(name: jobName, dueDate: dueDate,
+                                       payout: "")
+                    jobListStore.jobs.append(job)
+                    //self.presentationMode.wrappedValue.dismiss();
+                    dismiss()
+                }.disabled(jobName.isEmpty)
+                Button("Cancel"){
+                    //self.presentationMode.wrappedValue.dismiss();
+                    dismiss()
+                }
+            }
         }.listStyle(InsetGroupedListStyle())
             .navigationTitle("Add Job")
     }
